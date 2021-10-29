@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gemstones</title>
-    <!-- CSS -->
+
     <style>
       html {
         background-color: #000000;
@@ -23,6 +23,7 @@
         font-size: 60px;
         margin-top: 90px;
         margin-bottom: 20px;
+        text-shadow: 2px 2px 6px pink;
       }
 
       button {
@@ -71,9 +72,27 @@
         height: 170px;
         margin: 65px 5px;
       }
+
+      .credit {
+        margin-top: 30px;
+        margin-bottom: 5px;
+      }
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #a00000;
+        font-weight: bolder;
+      }
+      a:active {
+        color: #ff0000;
+        text-decoration: none;
+      }
     </style>
   </head>
-  <!-- HTML -->
+
   <body>
     <h1>Gemstones</h1>
     <p>
@@ -93,7 +112,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardOne()"
+            onclick='flipCard("garnet")'
           />
           <p class="month">January</p>
         </span>
@@ -102,7 +121,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardTwo()"
+            onclick='flipCard("amethyst")'
           />
           <p class="month">February</p>
         </span>
@@ -111,7 +130,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardThree()"
+            onclick='flipCard("aquamarine")'
           />
           <p class="month">March</p>
         </span>
@@ -120,7 +139,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardFour()"
+            onclick='flipCard("diamond")'
           />
           <p class="month">April</p>
         </span>
@@ -131,7 +150,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardFive()"
+            onclick='flipCard("emerald")'
           />
           <p class="month">May</p>
         </span>
@@ -140,7 +159,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardSix()"
+            onclick='flipCard("pearl")'
           />
           <p class="month">June</p>
         </span>
@@ -149,7 +168,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardSeven()"
+            onclick='flipCard("ruby")'
           />
           <p class="month">July</p>
         </span>
@@ -158,7 +177,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardEight()"
+            onclick='flipCard("peridot")'
           />
           <p class="month">August</p>
         </span>
@@ -169,7 +188,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardNine()"
+            onclick='flipCard("sapphire")'
           />
           <p class="month">September</p>
         </span>
@@ -178,7 +197,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardTen()"
+            onclick='flipCard("opal")'
           />
           <p class="month">October</p>
         </span>
@@ -187,7 +206,7 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardEleven()"
+            onclick='flipCard("topaz")'
           />
           <p class="month">November</p>
         </span>
@@ -196,138 +215,135 @@
             class="notFlipped"
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
             alt="colorful geometry"
-            onclick="flipCardTwelve()"
+            onclick='flipCard("tanzanite")'
           />
           <p class="month">December</p>
         </span>
       </div>
     </div>
+    <p class="credit">
+      <br />
+      Coded by Nattha Oroz
+    </p>
+    <a href="https://linkedin.com/in/nattha-oroz-76234bb7" target="_blank">
+      LinkedIn
+    </a>
 
-    <!-- <a href="https://en.wikipedia.org/wiki/Gemstone" target="_blank">
-        Read more about gemstones on Wikipedia
-      </a> -->
-
-    <!-- JS -->
     <script>
+      // Entering a name (mandatory) and showing the greeting message and cards
       function addName() {
         let name = prompt("What is your name?");
-        let h2 = document.querySelector("h2");
-        h2.innerHTML =
-          "Welcome " + name + "! " + "<br />Please select your birth month.";
-
-        document.getElementById("cardDeck").style.display = "block";
+        if (name === "") {
+          alert("Please enter your name.");
+        } else {
+          let h2 = document.querySelector("h2");
+          h2.innerHTML =
+            "Welcome " + name + "! " + "<br />Please select your birth month.";
+          document.getElementById("cardDeck").style.display = "block";
+        }
       }
-
       let checkBirthstone = document.querySelector("button");
       checkBirthstone.addEventListener("click", addName);
 
-      function flipCardOne() {
-        let garnet = document.getElementById("garnet");
-        garnet.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/016/original/1GGarnet.jpg?1635515685"
-            alt="garnet"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Garnet</p>`;
-      }
-      function flipCardTwo() {
-        let amethyst = document.getElementById("amethyst");
-        amethyst.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/035/original/2Amethyst.jpg?1635520675"
-            alt="amethyst"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Amethyst</p>`;
-      }
-      function flipCardThree() {
-        let aquamarine = document.getElementById("aquamarine");
-        aquamarine.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/018/original/3Aquamarinee.jpg?1635515696"
-            alt="aquamarine"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Aquamarine</p>`;
-      }
-      function flipCardFour() {
-        let diamond = document.getElementById("diamond");
-        diamond.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/019/original/4diamond.jpg?1635515701"
-            alt="diamond"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Diamond</p>`;
-      }
-      function flipCardFive() {
-        let emerald = document.getElementById("emerald");
-        emerald.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/020/original/5EMERALD.jpg?1635515707"
-            alt="emerald"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Emerald</p>`;
-      }
-      function flipCardSix() {
-        let pearl = document.getElementById("pearl");
-        pearl.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/021/original/6pearl1.jpg?1635515712"
-            alt="pearl"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Pearl</p>`;
-      }
-      function flipCardSeven() {
-        let ruby = document.getElementById("ruby");
-        ruby.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/031/original/7Ruby.jpg?1635520237"
-            alt="ruby"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Ruby</p>`;
-      }
-      function flipCardEight() {
-        let peridot = document.getElementById("peridot");
-        peridot.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/034/original/8Peridot.jpg?1635520523"
-            alt="peridot"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Peridot</p>`;
-      }
-      function flipCardNine() {
-        let sapphire = document.getElementById("sapphire");
-        sapphire.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/024/original/9Sapphire.jpg?1635515727"
-            alt="sapphire"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Sapphire</p>`;
-      }
-      function flipCardTen() {
-        let opal = document.getElementById("opal");
-        opal.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/025/original/10Harlequin_opal.jpg?1635515731"
-            alt="opal"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Opal</p>`;
-      }
-      function flipCardEleven() {
-        let topaz = document.getElementById("topaz");
-        topaz.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/026/original/11Topaz.jpg?1635515736"
-            alt="topaz"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Topaz</p>`;
-      }
-      function flipCardTwelve() {
-        let tanzanite = document.getElementById("tanzanite");
-        tanzanite.innerHTML = `<img class="flipped"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/027/original/12Tanzanite.jpg?1635515825"
-            alt="tanzanite"
-            style="object-fit: scale-down; "
-          />
-          <p class="month">Tanzanite</p>`;
+      // Replacing default image on the cards with gem images each month
+      function flipCard(gemstone) {
+        if (gemstone === "garnet") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/016/original/1GGarnet.jpg?1635515685"
+                  alt="garnet"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Garnet</p>`;
+        } else if (gemstone === "amethyst") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/035/original/2Amethyst.jpg?1635520675"
+                  alt="amethyst"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Amethyst</p>`;
+        } else if (gemstone === "aquamarine") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/018/original/3Aquamarinee.jpg?1635515696"
+                  alt="aquamarine"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Aquamarine</p>`;
+        } else if (gemstone === "diamond") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/019/original/4diamond.jpg?1635515701"
+                  alt="diamond"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Diamond</p>`;
+        } else if (gemstone === "emerald") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/020/original/5EMERALD.jpg?1635515707"
+                  alt="emerald"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Emerald</p>`;
+        } else if (gemstone === "pearl") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/021/original/6pearl1.jpg?1635515712"
+                  alt="pearl"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Pearl</p>`;
+        } else if (gemstone === "ruby") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/031/original/7Ruby.jpg?1635520237"
+                  alt="ruby"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Ruby</p>`;
+        } else if (gemstone === "peridot") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/034/original/8Peridot.jpg?1635520523"
+                  alt="peridot"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Peridot</p>`;
+        } else if (gemstone === "sapphire") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/024/original/9Sapphire.jpg?1635515727"
+                  alt="sapphire"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Sapphire</p>`;
+        } else if (gemstone === "opal") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/025/original/10Harlequin_opal.jpg?1635515731"
+                  alt="opal"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Opal</p>`;
+        } else if (gemstone === "topaz") {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/026/original/11Topaz.jpg?1635515736"
+                  alt="topaz"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Topaz</p>`;
+        } else {
+          let gemCard = document.getElementById(gemstone);
+          gemCard.innerHTML = `<img class="flipped"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/027/original/12Tanzanite.jpg?1635515825"
+                  alt="tanzanite"
+                  style="object-fit: scale-down; "
+                />
+                <p class="month">Tanzanite</p>`;
+        }
       }
     </script>
   </body>
