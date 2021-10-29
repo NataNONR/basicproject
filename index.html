@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemstones</title>
+    <!-- CSS -->
+    <style>
+      html {
+        background-color: #000000;
+        background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/029/original/550656.jpg?1635519374);
+        background-position: top;
+        background-repeat: repeat;
+        background-size: 100%;
+        color: #ffffff;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 60px;
+        margin-top: 90px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 15px;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 6px 6px 10px 1px rgba(255, 255, 255, 0.3);
+        text-align: center;
+        transition: all 300ms ease-in-out;
+      }
+      button:hover {
+        background-color: #380000;
+        color: #ffffff;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .month {
+        color: rgb(139, 114, 114);
+        font-weight: 500;
+        margin-top: 10px;
+        padding: 0;
+      }
+
+      .cards {
+        background-color: rgba(252, 227, 227, 0.95);
+        border: 3px solid #f0c4c4;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-block;
+        image-rendering: pixelated;
+        margin: 10px;
+      }
+
+      .notFlipped {
+        width: 200px;
+        height: 300px;
+        image-rendering: pixelated;
+      }
+
+      .flipped {
+        image-rendering: auto;
+        width: 190px;
+        height: 170px;
+        margin: 65px 5px;
+      }
+    </style>
+  </head>
+  <!-- HTML -->
+  <body>
+    <h1>Gemstones</h1>
+    <p>
+      Gemstones are minerals, rocks, or organic matters that have been chosen,
+      cut and polished to make jewelry.
+      <br />
+      Some gemstones are chosen to represent each birth months, known as
+      birthstones.
+    </p>
+
+    <button>Find Out Your Birthstone</button>
+    <h2></h2>
+    <div class="allCards" id="cardDeck" style="display: none">
+      <div class="rowOne">
+        <span class="cards" id="garnet"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardOne()"
+          />
+          <p class="month">January</p>
+        </span>
+        <span class="cards" id="amethyst"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardTwo()"
+          />
+          <p class="month">February</p>
+        </span>
+        <span class="cards" id="aquamarine"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardThree()"
+          />
+          <p class="month">March</p>
+        </span>
+        <span class="cards" id="diamond"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardFour()"
+          />
+          <p class="month">April</p>
+        </span>
+      </div>
+      <div class="rowTwo">
+        <span class="cards" id="emerald"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardFive()"
+          />
+          <p class="month">May</p>
+        </span>
+        <span class="cards" id="pearl"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardSix()"
+          />
+          <p class="month">June</p>
+        </span>
+        <span class="cards" id="ruby"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardSeven()"
+          />
+          <p class="month">July</p>
+        </span>
+        <span class="cards" id="peridot"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardEight()"
+          />
+          <p class="month">August</p>
+        </span>
+      </div>
+      <div class="rowThree">
+        <span class="cards" id="sapphire"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardNine()"
+          />
+          <p class="month">September</p>
+        </span>
+        <span class="cards" id="opal"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardTen()"
+          />
+          <p class="month">October</p>
+        </span>
+        <span class="cards" id="topaz"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardEleven()"
+          />
+          <p class="month">November</p>
+        </span>
+        <span class="cards" id="tanzanite"
+          ><img
+            class="notFlipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/019/907/original/design-g18ab5e088_1920.png?1635407690"
+            alt="colorful geometry"
+            onclick="flipCardTwelve()"
+          />
+          <p class="month">December</p>
+        </span>
+      </div>
+    </div>
+
+    <!-- <a href="https://en.wikipedia.org/wiki/Gemstone" target="_blank">
+        Read more about gemstones on Wikipedia
+      </a> -->
+
+    <!-- JS -->
+    <script>
+      function addName() {
+        let name = prompt("What is your name?");
+        let h2 = document.querySelector("h2");
+        h2.innerHTML =
+          "Welcome " + name + "! " + "<br />Please select your birth month.";
+
+        document.getElementById("cardDeck").style.display = "block";
+      }
+
+      let checkBirthstone = document.querySelector("button");
+      checkBirthstone.addEventListener("click", addName);
+
+      function flipCardOne() {
+        let garnet = document.getElementById("garnet");
+        garnet.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/016/original/1GGarnet.jpg?1635515685"
+            alt="garnet"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Garnet</p>`;
+      }
+      function flipCardTwo() {
+        let amethyst = document.getElementById("amethyst");
+        amethyst.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/035/original/2Amethyst.jpg?1635520675"
+            alt="amethyst"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Amethyst</p>`;
+      }
+      function flipCardThree() {
+        let aquamarine = document.getElementById("aquamarine");
+        aquamarine.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/018/original/3Aquamarinee.jpg?1635515696"
+            alt="aquamarine"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Aquamarine</p>`;
+      }
+      function flipCardFour() {
+        let diamond = document.getElementById("diamond");
+        diamond.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/019/original/4diamond.jpg?1635515701"
+            alt="diamond"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Diamond</p>`;
+      }
+      function flipCardFive() {
+        let emerald = document.getElementById("emerald");
+        emerald.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/020/original/5EMERALD.jpg?1635515707"
+            alt="emerald"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Emerald</p>`;
+      }
+      function flipCardSix() {
+        let pearl = document.getElementById("pearl");
+        pearl.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/021/original/6pearl1.jpg?1635515712"
+            alt="pearl"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Pearl</p>`;
+      }
+      function flipCardSeven() {
+        let ruby = document.getElementById("ruby");
+        ruby.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/031/original/7Ruby.jpg?1635520237"
+            alt="ruby"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Ruby</p>`;
+      }
+      function flipCardEight() {
+        let peridot = document.getElementById("peridot");
+        peridot.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/034/original/8Peridot.jpg?1635520523"
+            alt="peridot"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Peridot</p>`;
+      }
+      function flipCardNine() {
+        let sapphire = document.getElementById("sapphire");
+        sapphire.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/024/original/9Sapphire.jpg?1635515727"
+            alt="sapphire"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Sapphire</p>`;
+      }
+      function flipCardTen() {
+        let opal = document.getElementById("opal");
+        opal.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/025/original/10Harlequin_opal.jpg?1635515731"
+            alt="opal"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Opal</p>`;
+      }
+      function flipCardEleven() {
+        let topaz = document.getElementById("topaz");
+        topaz.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/026/original/11Topaz.jpg?1635515736"
+            alt="topaz"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Topaz</p>`;
+      }
+      function flipCardTwelve() {
+        let tanzanite = document.getElementById("tanzanite");
+        tanzanite.innerHTML = `<img class="flipped"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/027/original/12Tanzanite.jpg?1635515825"
+            alt="tanzanite"
+            style="object-fit: scale-down; "
+          />
+          <p class="month">Tanzanite</p>`;
+      }
+    </script>
+  </body>
+</html>
